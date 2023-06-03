@@ -26,6 +26,9 @@ main {
     background-color: #c8e6c9;
     height: 600px;
     overflow-y: scroll;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 footer {
