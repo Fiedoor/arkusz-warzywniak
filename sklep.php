@@ -20,7 +20,18 @@
 </header>
 <main>
     <?php
-
+    $conn = mysqli_connect('localhost', 'root', '', 'dane2');
+    $query = mysqli_query($conn, "SELECT nazwa,ilosc,opis,cena,zdjecie from produkty WHERE rodzaje_id=1 or rodzaje_id=2");
+    foreach ($query as $block) {
+        echo "<div id='product-block'>";
+        echo "<img src=" . $block['zdjecie'] . ">";
+        echo "<h5>" . $block['nazwa'] . "</h5>";
+        echo "<p> opis: " . $block['opis'] . "</p>";
+        echo "<p> na stanie: " . $block['ilosc'] . "</p>";
+        echo "<h2>" . $block['cena'] . " zł</h2>";
+        echo "</div>";
+    }
+    mysqli_close($conn);
     ?>
 </main>
 <footer>
